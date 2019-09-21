@@ -1,4 +1,4 @@
-## The DIY Control Line Timer
+## An Open Source Control Line Timer Project
 
 You can use the [editor on GitHub](https://github.com/CircuitFlyer/Touch_and_Go/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
