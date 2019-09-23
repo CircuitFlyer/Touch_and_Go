@@ -17,7 +17,9 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 -	Easy to assemble.  Solder a few pins, update to the latest version of CircuitPython, save the programs and libraries onto the drive, connect to your ESC, adjust your settings and fly.
 -	Reprogrammable.  Have another project in mind?  The Trinket M0 can be programmed for a multitude of other maker and hacker projects.  It can even be programmed as an Arduino board if preferred.
 
-Detail of the Adafruit Trinket M0 can be found [here](https://www.adafruit.com/product/3500)
+Details of the Adafruit Trinket M0 can be found [here](https://www.adafruit.com/product/3500)
+
+All of the details to build and program your own timer are covered in the [Touch_and_Go Instruction Manual]()
 
 ### Markdown
 
