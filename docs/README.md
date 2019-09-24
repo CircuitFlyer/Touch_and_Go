@@ -19,7 +19,7 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 
 Details of the Adafruit Trinket M0 can be found [here](https://www.adafruit.com/product/3500)
 
-All of the details to build and program your own timer are covered in the [Touch_and_Go Instruction Manual]()
+All of the details to build and program your own timer are covered in the [Touch_and_Go Instruction Manual](https://github.com/CircuitFlyer/Touch_and_Go/Touch_and_Go - Instruction Manual.pdf)
 
 ### Markdown
 
