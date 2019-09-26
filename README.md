@@ -1,37 +1,7 @@
 ## An Open Source Control Line Timer Project
 
-You can use the [editor on GitHub](https://github.com/CircuitFlyer/Touch_and_Go/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Touch and Go is an open source software program to create your own basic timer for an electric powered control line model aircraft.  Utilizing a $9 Adafruit Industries Trinket M0 microcontroller development board the timer is compact, light-weight and simple to use.   With a few taps of your finger the timer can be quickly programmed at the flying field to change the time delay before start-up, the length of the flight and the RPM setting of the motor.  Because it’s open source, you can customize the functionality to your liking or even add new features.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Project Philosophy
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CircuitFlyer/Touch_and_Go/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This project developed from a desire to promote interest in electric powered control line.  It had to be simple to make and use with minimal components.  
