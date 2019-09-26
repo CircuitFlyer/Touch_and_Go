@@ -2,7 +2,7 @@
 
 Touch and Go is an open source software program to create your own basic timer for an electric powered control line model aircraft.  Utilizing a low cost Adafruit Industries Trinket M0 microcontroller development board the timer is compact, light-weight and simple to use.   With a few taps of your finger the timer can be quickly programmed at the flying field to change the time delay before start-up, the length of the flight and the RPM setting of the motor.  Because it’s open source, you can customize the functionality to your liking or even add new features.
 
-Although Touch and Go is meant to be an economical “do-it-yourself“ project, it packs a lot of useful functions:
+Although Touch and Go is meant to be an economical “do-it-yourself“ project, for only $8.95 it packs a lot of useful functions:
 - Compact.  27mm x 15mm
 -	Lightweight.  1.5g
 -	Capacitive touch sensor for user input.  No additional switches or buttons required.
