@@ -8,4 +8,4 @@ This project developed from a desire to promote interest in electric powered con
 
 ## Instructions
 
-Detailed assembly, programming and operating instructions can be found in the instruction manual as a downloadable PDF file from a link on my GitHub Pages, [www.circuitflyer.com](https://circuitflyer.com)  The program files can be downloaded from the web page or from the releases tab above.
+Detailed assembly, programming and operating instructions can be found in the instruction manual as a downloadable PDF file from a link on my GitHub Pages, [www.circuitflyer.com](https://circuitflyer.com)  The program files can be downloaded from the web page or from the release tab above.
