@@ -19,30 +19,9 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 
 ![Photo1](IMG_0784.jpg)
 
-## D.I.Y.
+## Make Your Own
 
 Complete instructions on how to assemble, program and use your own timer are covered in the [Touch_and_Go Instruction Manual](https://drive.google.com/open?id=1ZfWSwmYHQA84BMpqNk2dQViQf4tAropI)
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
 
 
