@@ -17,9 +17,10 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 -	Easy to assemble.  Solder a few pins, update to the latest version of CircuitPython, save the programs and libraries onto the drive, connect to your ESC, adjust your settings and fly.
 -	Reprogrammable.  Have another project in mind?  The Trinket M0 can be programmed for a multitude of other maker and hacker projects.  It can even be programmed as an Arduino board if preferred.
 
-Details of the Adafruit Trinket M0 can be found [here](https://www.adafruit.com/product/3500)
 
-All of the details to build and program your own timer are covered in the [Touch_and_Go Instruction Manual](https://github.com/CircuitFlyer/Touch_and_Go/Touch_and_Go-Instruction Manual.pdf)
+## D.I.Y.
+
+Complete instructions on how to assemble, program and use your own timer are covered in the [Touch_and_Go Instruction Manual](https://github.com/CircuitFlyer/Touch_and_Go/Touch_and_Go-Instruction Manual.pdf)
 
 ### Markdown
 
@@ -43,12 +44,4 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CircuitFlyer/Touch_and_Go/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
