@@ -4,7 +4,7 @@ Touch and Go is an open source software program to create your own basic timer f
 
 ## Project Philosophy
 
-This project developed from a desire to promote interest in electric powered control line.  The target user groups are the beginner and novice flyers up to the more advanced sport flyer.  It should adhear to the basic KISS principle, simple to make and use with minimal components.  I wanted it to be easy to program at the field without needing any tools or having to connect to any other devices. Based on these ideals, low cost is a positive byproduct.
+This project developed from a desire to promote interest in electric powered control line.  The target user groups are the beginner and novice flyers up to the more advanced sport flyer.  It is intended to adhere to the basic KISS principle, simple to make and use with minimal components.  I wanted it to be easy to program at the field without needing any tools or having to connect to any other devices. Based on these ideals, low cost becomes a positive byproduct.
 
 ## Instructions
 
