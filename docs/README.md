@@ -12,6 +12,7 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 -	Built-in micro USB port.  Plug it into your computer and it shows up as a small disk drive.  The stored programs can be opened and edited in a simple text editing program.  No extra software or apps to download.  Although, if you intend to make extensive changes to the code then a free software editing program is highly recommended.
 -	Field programmable. The delay, flight time and RPM settings can be changed without any extra tools, cards, computers or programming boxes.
 -	Soft start.  The programmed RPM increases and decreases over a period of several seconds for smoother take-off and landings
+- RPM boost during the flight to compensate for decreasing battery voltage.
 -	On-board memory to store your settings.
 -	Usable with lower cost ESC’s.
 -	Easy to assemble.  Solder a few pins, update to the latest version of CircuitPython, save the programs and libraries onto the drive, connect to your ESC, adjust your settings and fly.
