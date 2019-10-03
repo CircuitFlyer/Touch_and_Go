@@ -1,8 +1,14 @@
-# Electric Control Line Timer by Paul Emmerson.  Program for an Adafruit microcontroller development board
-# to create a PWM signal suitable to control a typical flight of an electric powered control line model aircraft.
+#    ******************** 
+#    *   Touch_and_Go   *
+#    ********************
 
-# Board: Adafruit Trinket M0
-# Timer Program Version: 1.0.0
+#  An Open Source Electric Control Line Timer by CircuitFlyer (a.k.a. Paul Emmerson).  A CircuitPython program for an
+#  Adafruit microcontroller development board to create a timed PWM servo signal suitable to control a typical flight of an 
+#  electric powered control line model aircraft.
+
+# Board: Adafruit Trinket M0, https://www.adafruit.com/product/3500
+# Firmware: CircuitPython 4.1.0 
+# Timer Program Version: 1.0, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
 
 # Import required libraries and modules:
 
@@ -26,7 +32,7 @@ led.direction = Direction.OUTPUT
 
 # Capacitive touch sensor on pin D3
 touch = touchio.TouchIn(board.D3)
-while (touch.raw_value > 3000):  # if pin is touched: wait (finger on the pin at boot up for USB access)
+while (touch.raw_value > 3000):  # if pin is touched: wait (finger on the pin at boot-up for USB access)
     time.sleep(0.1)
 touch.deinit()  # as soon as pin is not touched de-initialize and
 touch = touchio.TouchIn(board.D3)  # restart, otherwise the threshold value will be too high and touch.value won't work
@@ -115,12 +121,12 @@ flash_time = 0
 mode = "standby"
 flash_count = 0
 last_time = 0
-volt_comp = 0  # Beta test - voltage compensation see flight mode
+volt_comp = 0  # voltage compensation see flight mode
 delay_time = 30  # default delay time (seconds) (byte)
 flight_time = 24  # default flight time (10 second intervals) (byte)
 rpm = 60  # default rpm setting (0 - 100) (byte)
 TO_period = 3  # period in seconds for RPM to increase from idle to flight RPM
-land_period = 5  # period in seconds for RPM to decrease from flight RPM to off
+land_period = 4  # period in seconds for RPM to decrease from flight RPM to off
 rpm_fraction = (rpm / 100)  # servo.fraction uses data from 0.0 - 1.0, converts integer into fraction
 parameters = [delay_time, flight_time, rpm]  # make default parameters into a list
 
@@ -143,7 +149,7 @@ except OSError:
 # Main Loop
 
 while True:
-    led.value = touch.value  # link built in red LED to touch pin
+    led.value = touch.value  # link built-in red LED to touch pin
     now = time.monotonic()  # update current time
     main_count = 0  # clear previous short touch count
     
@@ -250,9 +256,9 @@ while True:
             end_of_long_touch = False  # reset flag
             print(mode)
         if (now - last_time + 5 > delay_time):  # 5 seconds of warning flash before starting motor
-            dot_update(BLUE, 0.05)
+            dot_update(WHITE, 0.05)
         else:
-            dot_update(BLUE, 0)
+            dot_update(BLUE, 0.5)
         if (now - last_time > delay_time):  # after the programmed delay start the motor for take-off
             mode = "take-off"
             increment = (abs(.25 - rpm_fraction))/(TO_period * 10)  # calculate the size of the rpm increment for rpm_ramp
@@ -279,13 +285,14 @@ while True:
         if (touch.value):  # any touch will kill the motor and end the flight
             mode = "flight_complete"
             print(mode)
-        if (now - volt_comp > 25):  # beta test - voltage compensation
-            servo.fraction += .003  # boost the rpm a tiny bit every 25 seconds
-            volt_comp = now
-            print(servo.fraction)
-        if (now - last_time + 10 > (flight_time * 10)):  # flash the dotstar for 10 seconds before the motor stops
+        if (flight_time > 17):  # voltage compensation kicks in at 3 minute flight times and above
+            if (now - volt_comp) >(flight_time/2):  # voltage compensation starting at 5% of flight time
+                servo.fraction += .005  # boost the rpm a tiny bit
+                volt_comp += ((flight_time * 9.5) / 8)  # boost it again at equal intervals over the remaining 95%
+                print(servo.fraction)
+        if (now - last_time + 11 > (flight_time * 10)):  # flash the dotstar for 10 seconds before the motor stops
             dot_update(WHITE, 0.05)
-        if (now - last_time > (flight_time * 10)):  # time is up, prep for landing
+        if (now - last_time +1 > (flight_time * 10)):  # time is up, prep for landing
             mode = "landing"
             increment = -(abs(.25 - rpm_fraction))/(land_period * 10)  # calculate the size of the rpm increment for rpm_ramp
             last_time = now
