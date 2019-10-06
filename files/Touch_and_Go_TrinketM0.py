@@ -125,7 +125,7 @@ volt_comp = 0  # voltage compensation see flight mode
 delay_time = 30  # default delay time (seconds) (byte)
 flight_time = 24  # default flight time (10 second intervals) (byte)
 rpm = 60  # default rpm setting (0 - 100) (byte)
-TO_period = 3  # period in seconds for RPM to increase from idle to flight RPM
+TO_period = 2  # period in seconds for RPM to increase from idle to flight RPM
 land_period = 4  # period in seconds for RPM to decrease from flight RPM to off
 rpm_fraction = (rpm / 100)  # servo.fraction uses data from 0.0 - 1.0, converts integer into fraction
 parameters = [delay_time, flight_time, rpm]  # make default parameters into a list
@@ -157,6 +157,7 @@ while True:
     
     if (touch.value and not previous_touch):  # at the start of any touch
         touch_time = now
+        time.sleep(.02)  # add a tiny amount of debounce
         counter += 1
         previous_touch = True
     
@@ -223,8 +224,6 @@ while True:
             increment = (abs(.25 - rpm_fraction))/(10)  # calculate the size of the rpm increment for soft start rpm_ramp
             last_time = now
             servo.fraction = 0.25  # start motor at minimum RPM
-        #else:
-            #dot_update(MAGENTA, 0)
         program_select()  # number of short touches determine where to go next
 
     if (mode == "set_rpm"):  # mode to run motor at flight RPM and adjust as required
@@ -247,6 +246,7 @@ while True:
             print('RPM is ', rpm)
             save_parameters()  # save the parameters
             servo.fraction = 0  # stop the motor
+            end_of_long_touch = False  # reset flag
             done = False  # reset for the next time
             mode = "program_rpm"  # exit to the beginning of the program RPM mode
     
@@ -288,7 +288,7 @@ while True:
         if (flight_time > 17):  # voltage compensation kicks in at 3 minute flight times and above
             if (now - volt_comp) >(flight_time/2):  # voltage compensation starting at 5% of flight time
                 servo.fraction += .005  # boost the rpm a tiny bit
-                volt_comp += ((flight_time * 9.5) / 8)  # boost it again at equal intervals over the remaining 95%
+                volt_comp += ((flight_time * 9.5) / 7)  # boost it again at equal intervals over the remaining 95%
                 print(servo.fraction)
         if (now - last_time + 11 > (flight_time * 10)):  # flash the dotstar for 10 seconds before the motor stops
             dot_update(WHITE, 0.05)
