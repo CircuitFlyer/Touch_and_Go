@@ -7,7 +7,7 @@
 #  electric powered control line model aircraft.
 
 # Board: Adafruit Trinket M0, https://www.adafruit.com/product/3500
-# Firmware: CircuitPython 4.1.0 
+# Firmware: CircuitPython 4.1.x 
 # Timer Program Version: 1.1, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
 
 # Import required libraries and modules:
@@ -69,6 +69,7 @@ def save_parameters():  # used to write any changed parameters to memory for the
             array = bytearray(parameters)
             file.write(array)  # write the new parameters as bytes
             file.close()
+            print("Saved ", parameters)
     except OSError:
         print('Oops, write access from code not available, parameters not saved')  # if there is a problem
 
@@ -232,10 +233,10 @@ while True:
         if (servo.fraction >= rpm_fraction and not done):
             servo.fraction = rpm_fraction
             done = True  # soft start only at the beginning then the single & double touches take over to control the RPM
-        if (main_count == 1):  # if a single touch
+        if (main_count == 1 and servo.fraction < 0.98):  # if a single touch and below 1.0 maximum
             servo.fraction += 0.01  # speed it up a little
             print(servo.fraction)
-        if (main_count == 2): # if a double touch
+        if (main_count == 2 and servo.fraction > 0.02): # if a double touch and above 0.0 minimum
             servo.fraction -= 0.01  # slow it down a little
             print(servo.fraction)
         if (counter == 3):   # three touches to stop motor and write new settings to memory
