@@ -45,11 +45,9 @@ servo.fraction = 0  # set idle throttle ASAP in case ESC is looking for a signal
 # Create some helper functions:
 
 def dot_update(color, flash_interval):  # used to control the color and flash rate of the built in dotstar LED
-    global now
     global show
     global flash_time
     global flash_count
-    global long_touch
     if (flash_interval == 0):  # if a solid color is required, turn it on
         dot[0] = color
         show = True
@@ -156,10 +154,11 @@ while True:
 # each time through the main loop, the following will test the touch pin for # of short touches or if a long touch has been entered
     
     if (touch.value and not previous_touch):  # at the start of any touch
-        touch_time = now
-        time.sleep(.02)  # add a tiny amount of debounce
-        counter += 1
-        previous_touch = True
+        time.sleep(.02)  # add a bit of simple debounce, nothing time sensitive here
+        if (touch.value and not previous_touch):  # check it again, if still touched proceed
+            touch_time = now
+            counter += 1
+            previous_touch = True
     
     if (not touch.value and previous_touch):  # at the end of any touch
         previous_touch = False
