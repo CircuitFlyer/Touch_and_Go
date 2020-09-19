@@ -8,7 +8,7 @@
 
 # Board: Adafruit Trinket M0, https://www.adafruit.com/product/3500
 # Firmware: CircuitPython 4.1.0 
-# Timer Program Version: 1.0, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
+# Timer Program Version: 1.1, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
 
 # Import required libraries and modules:
 
