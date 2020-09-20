@@ -20,7 +20,7 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 
 ## Make Your Own
 
-Complete instructions on how to assemble, program and operate your own timer are covered in the [Touch_and_Go Instruction Manual](https://drive.google.com/open?id=1Yr5QUAfk2A5-emMZwnocuuorB_zxQBBt)
+Complete instructions on how to assemble, program and operate your own timer are covered in the [Touch_and_Go Instruction Manual](https://drive.google.com/file/d/1H0zqo5VYoGm2sOIp6uVmmHZncjL9XQux/view?usp=sharing)
 
 ![Photo1](IMG_0784.jpg)
 
