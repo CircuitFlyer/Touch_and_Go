@@ -15,7 +15,7 @@ Although Touch and Go is meant to be an economical “do-it-yourself“ project,
 - RPM boost during the flight to compensate for decreasing battery voltage.
 -	On-board memory to store your settings.
 -	Usable with lower cost ESC’s.
--	Easy to assemble.  Solder a few pins, update to the latest version of CircuitPython, save the programs and libraries onto the drive, connect to your ESC, adjust your settings and fly.
+-	Easy to assemble.  Solder a few pins, update CircuitPython, save the programs and libraries onto the drive, connect to your ESC, adjust your settings and fly.
 -	Reprogrammable.  Have another project in mind?  The Trinket M0 can be programmed for a multitude of other maker and hacker projects.  It can even be programmed as an Arduino board if preferred.
 
 ## Make Your Own
