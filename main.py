@@ -8,7 +8,7 @@
 
 # Board: Adafruit Trinket M0, https://www.adafruit.com/product/3500
 # Firmware: CircuitPython 4.1.x 
-# Timer Program Version: 1.1, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
+# Timer Program Version: 1.2, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
 
 # Import required libraries and modules:
 
@@ -39,7 +39,7 @@ touch = touchio.TouchIn(board.D3)  # restart, otherwise the threshold value will
 
 # Servo signal output on pin D4
 servo_pwm = pulseio.PWMOut(board.D4, frequency=50)
-servo = servo.Servo(servo_pwm)
+servo = servo.Servo(servo_pwm, min_pulse=950, max_pulse=2150)
 servo.fraction = 0  # set idle throttle ASAP in case ESC is looking for a signal
 
 # Create some helper functions:
@@ -168,7 +168,7 @@ while True:
             long_touch = False
             end_of_long_touch = True  # set flag
     
-    if (now - touch_time > 1 and counter > 0 and not touch.value):  # delay before updating short touch count
+    if (now - touch_time > 1 and counter > 0 and not touch.value and not long_touch):  # delay before updating short touch count
         main_count = counter  # indicator that short count is complete
         counter = 0
     
