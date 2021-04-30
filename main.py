@@ -1,13 +1,13 @@
-#    ******************** 
+#    ********************
 #    *   Touch_and_Go   *
 #    ********************
 
 #  An Open Source Electric Control Line Timer by CircuitFlyer (a.k.a. Paul Emmerson).  A CircuitPython program for an
-#  Adafruit microcontroller development board to create a timed PWM servo signal suitable to control a typical flight of an 
+#  Adafruit microcontroller development board to create a timed PWM servo signal suitable to control a typical flight of an
 #  electric powered control line model aircraft.
 
 # Board: Adafruit Trinket M0, https://www.adafruit.com/product/3500
-# Firmware: CircuitPython 4.1.x 
+# Firmware: CircuitPython 4.1.x
 # Timer Program Version: 1.2, www.circuitflyer.com, https://github.com/CircuitFlyer/Touch_and_Go
 
 # Import required libraries and modules:
@@ -89,14 +89,17 @@ def program_select():  # used to select the various choices within the programmi
         mode = "standby"
         print(mode)
     main_count = 0
- 
+
 def rpm_ramp(increment):  # used to ramp up or down the rpm over a period of time
     global last_time
+    global rpm_fraction
+    new_rpm = max(min((servo.fraction + increment), rpm_fraction), 0)  # contrain the value
     if (now > last_time + 0.1):  # update a new rpm 10 times a second
-        servo.fraction += increment
+        servo.fraction = new_rpm + .001
+        print(servo.fraction)
         last_time = now
- 
-# Define a bunch of variables:
+
+# Define a bunch of program variables and default settings:
 
 previous_touch = False
 counter = 0
@@ -124,10 +127,16 @@ volt_comp = 0  # voltage compensation see flight mode
 delay_time = 30  # default delay time (seconds) (byte)
 flight_time = 24  # default flight time (10 second intervals) (byte)
 rpm = 60  # default rpm setting (0 - 100) (byte)
-TO_period = 2  # period in seconds for RPM to increase from idle to flight RPM
-land_period = 4  # period in seconds for RPM to decrease from flight RPM to off
 rpm_fraction = (rpm / 100)  # servo.fraction uses data from 0.0 - 1.0, converts integer into fraction
 parameters = [delay_time, flight_time, rpm]  # make default parameters into a list
+
+# ***** USER ADJUSTABLE VARIABLES *******
+
+TO_period = 2  # period in seconds for RPM to increase from idle to flight RPM.  Minimum of 1 second to avoid stress on airframe.
+land_period = 3  # period in seconds for RPM to decrease from flight RPM to off.  Minimum of 0.1 second.
+battery_boost = True  # Increase the RPM over the duration of flights 3 minutes or more to compensate for 
+# decreasing battery voltage.  Set to False to turn it off.
+
 
 # Read saved parameters from memory:
 
@@ -145,38 +154,43 @@ except OSError:
         rpm_fraction = (rpm / 100)
         file.close()
 
+if (TO_period < 1):
+    TO_period = 1 # minimum value to avoid errors
+if (land_period < 0.1):
+    land_period = 0.1  # minimum value to avoid errors
+
 # Main Loop
 
 while True:
     led.value = touch.value  # link built-in red LED to touch pin
     now = time.monotonic()  # update current time
     main_count = 0  # clear previous short touch count
-    
+
 # each time through the main loop, the following will test the touch pin for # of short touches or if a long touch has been entered
-    
+
     if (touch.value and not previous_touch):  # at the start of any touch
         time.sleep(.02)  # add a bit of simple debounce, nothing time sensitive here
         if (touch.value and not previous_touch):  # check it again, if still touched proceed
             touch_time = now
             counter += 1
             previous_touch = True
-    
+
     if (not touch.value and previous_touch):  # at the end of any touch
         previous_touch = False
         if (long_touch):  # except long touches, don't count long touches
             counter = 0
             long_touch = False
             end_of_long_touch = True  # set flag
-    
+
     if (now - touch_time > 1 and counter > 0 and not touch.value and not long_touch):  # delay before updating short touch count
         main_count = counter  # indicator that short count is complete
         counter = 0
-    
+
     if (now - touch_time > 3 and touch.value and previous_touch):  # after holding a touch for 3 seconds
         long_touch = True
-    
+
 # Timer program code
-    
+
     if (mode == "standby"):  # entered at power-up, from programming modes or an aborted delay mode
         dot_update(GREEN, 0)
         if (long_touch):  # starts the timer for a typical flight
@@ -199,7 +213,7 @@ while True:
             flash_count = 0  # reset count
             print('Delay ', delay_time)
         program_select()  # number of touches will determine where to go next
-    
+
     if (mode == "program_flight"):  # entered from any other program mode
         if (long_touch):
             dot_update(CYAN, 0.4)
@@ -212,7 +226,7 @@ while True:
             flash_count = 0  # reset count
             print('Flight time ', flight_time)
         program_select()  # number of touches will determine where to go next
-    
+
     if (mode == "program_rpm"):  # entered from any other program mode
         if (now - touch_time > 0.2 and touch.value):  # at the start of the next long touch
             dot_update(MAGENTA, 0.05)  # flash quickly to warn of impending motor stat-up
@@ -249,7 +263,7 @@ while True:
             end_of_long_touch = False  # reset flag
             done = False  # reset for the next time
             mode = "program_rpm"  # exit to the beginning of the program RPM mode
-    
+
     if (mode == "delay"):  # mode to count down the time of the delayed start
         if (end_of_long_touch and touch.value):  # after the long touch used to enter this mode is over, any touch while in delay mode will abort and return to standby
             mode = "standby"
@@ -265,7 +279,7 @@ while True:
             last_time = now
             servo.fraction = 0.25  # start motor at minimum RPM
             print(mode)
-    
+
     if (mode == "take-off"):  # mode to slowly ramp up the RPM for a smooth take-off
         dot_update(RED, 1)
         if (touch.value):  # any touch will kill the motor and end the flight
@@ -279,7 +293,7 @@ while True:
             last_time = now
             volt_comp = now
             print(mode)
-    
+
     if (mode == "flight"):  # mode to time the lenght of flight
         dot_update(RED, 1)
         if (touch.value):  # any touch will kill the motor and end the flight
@@ -287,7 +301,8 @@ while True:
             print(mode)
         if (flight_time > 17):  # voltage compensation kicks in at 3 minute flight times and above
             if (now - volt_comp) >(flight_time/2):  # voltage compensation starting at 5% of flight time
-                servo.fraction += .005  # boost the rpm a tiny bit
+                if (battery_boost and servo.fraction < .99):  # if battery boost is truned ON (True)
+                    servo.fraction += .005  # boost the rpm a tiny bit
                 volt_comp += ((flight_time * 9.5) / 7)  # boost it again at equal intervals over the remaining 95%
                 print(servo.fraction)
         if (now - last_time + 11 > (flight_time * 10)):  # flash the dotstar for 10 seconds before the motor stops
@@ -297,7 +312,7 @@ while True:
             increment = -(abs(.25 - rpm_fraction))/(land_period * 10)  # calculate the size of the rpm increment for rpm_ramp
             last_time = now
             print(mode)
-    
+
     if (mode == "landing"):  # used to slowly decrease the RPM for a smooth landing
         dot_update(RED, 0.25)
         if (touch.value):  # any touch will kill the motor and end the flight
@@ -310,9 +325,7 @@ while True:
             mode = "flight_complete"
             last_time = now
             print(mode)
-    
+
     if (mode == "flight_complete"):  # used to latch the program in an endless loop to conclude the flight and stop the motor
         servo.fraction = 0  # the latched off prevents restarting without having to disconnect the battery and start over
         dot_update(BLANK, 0)  # for the next flight (hopefully with another fully charged battery)
-    
-    
