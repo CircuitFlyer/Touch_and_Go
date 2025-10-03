@@ -8,7 +8,7 @@ nav_order: 2
 
 ## Bill of Materials ##
 
-The components required to build a timer can be purchased from numerous on-line sources. The following chart lists some of the more popular suppliers but Adafruit has <a href="https://www.adafruit.com/distributors" target="_blank">distributors</a> around the world and you may be able to source products closer to home:
+The components required to build a timer can be purchased from numerous online sources. The following chart lists some of the more popular suppliers but Adafruit has <a href="https://www.adafruit.com/distributors" target="_blank">distributors</a> around the world and you may be able to source products closer to home:
 
 | Qty | Description | Online Sources |
 | :---: | ----------- | ------------- |
@@ -18,10 +18,10 @@ The components required to build a timer can be purchased from numerous on-line 
 
 ## Tools Required ##
 
-Electronic soldering equipment; soldering iron, flux and solder.  These are available from numerous online sources as well.  If you need to brush-up on your electronics soldering skills there are some good tutorials on <a href="https://learn.adafruit.com/adafruit-guide-excellent-soldering" target="_blank">Adafruit</a> and <a href="https://learn.sparkfun.com/tutorials/how-to-solder-through-hole-soldering?_ga=2.264399628.2047829894.1668554338-987389297.1656854053" target="_blank">Sparkfun</a>.
+Electronic soldering equipment; soldering iron, flux and solder.  These are available from numerous online sources as well.  If you need to brushup on your electronics soldering skills there are some good tutorials on <a href="https://learn.adafruit.com/adafruit-guide-excellent-soldering" target="_blank">Adafruit</a> and <a href="https://learn.sparkfun.com/tutorials/how-to-solder-through-hole-soldering?_ga=2.264399628.2047829894.1668554338-987389297.1656854053" target="_blank">Sparkfun</a>.
 
 {: .warning }
-Do **not** use a strong acid based flux.  While this type of flux is great for home plumbing repairs and building fuel tanks, it can be very corrosive to fragile electronic circuitry. Be sure to only use a <a href="https://www.chipquik.com/store/product_info.php?products_id=310027" target="_blank">rosin based</a> or <a href="https://www.chipquik.com/store/product_info.php?products_id=330003" target="_blank">no-clean  type</a> flux suitable for electronics assembly.
+Do **not** use a strong acid based flux.  While this type of flux is great for home plumbing repairs and building fuel tanks, it can be very corrosive to fragile electronic circuitry. Be sure to only use a <a href="https://www.chipquik.com/store/product_info.php?products_id=310027" target="_blank">rosin based</a> or <a href="https://www.chipquik.com/store/product_info.php?products_id=330003" target="_blank">no-clean type</a> flux suitable for electronics assembly.
 
 Other tools that may come in handy; magnifying glass, wire strippers, pliers and a small breadboard (optional).  For programming the timer you will need a micro-USB *data* cable.
 
@@ -56,7 +56,7 @@ ___
 **IMPORTANT** - When connecting the ESC be sure the connector ground wire (brown or black) is attached to the ground pin on the board and the signal wire (yellow or white) is connected to the pin that passes through the mounting hole.  The red power wire should always be in the middle.
 
 ___
-**Step 5** - Optional: It's a good practice to remove any residual solder flux from the joints. You can do this by using an old toothbrush dipped in 99% Isopropyl alcohol, gently scrubbing away the remaining flux. This high-concentration alcohol should be readily available at your local drug store.
+**Step 5 - Optional** - It's a good practice to remove any residual solder flux from the joints. You can do this by using an old toothbrush dipped in 99% Isopropyl alcohol, gently scrubbing away the remaining flux. This high-concentration alcohol should be readily available at your local drug store.
 
 ## Installation ##
 
