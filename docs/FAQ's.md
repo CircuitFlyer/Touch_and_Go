@@ -1,5 +1,5 @@
 ---
-title: FAQ's
+title: FAQs
 layout: default
 nav_order: 8
 ---
@@ -8,13 +8,13 @@ nav_order: 8
 
 ## Frequently Asked Questions ##
 
-**Does the Touch_and_Go work with any ESC?**  If the ESC works well with a servo tester I don't see any reason why it shouldn't work with the timer.  The timer does require an ESC with a built in BEC (battery eliminator circuit).  Ideally, the ESC should have a means to calibrate the throttle to match the timer output range.  It will not work with ESC's that require a mandatory maximum throttle signal in order to complete the throttle calibration sequence prior to each and every flight.
+**Does the Touch_and_Go work with any ESC?**  If the ESC works well with a servo tester there's no reason why it shouldn't work with the timer.  The timer does require an ESC with a built in BEC (battery eliminator circuit).  Ideally, the ESC should have a means to calibrate the throttle to match the timer output range.  It will not work with ESCs that require a mandatory maximum throttle signal in order to complete the throttle calibration sequence prior to each and every flight.
 
-**Can I extend the touch sensor pin?**  Yes, you can.  You will have to experiment to make sure it works reliably, but you can add a wire to the touch sensor pin to extend the ‘sensor’ to another location. Tape similar to this <a href="https://www.adafruit.com/product/3961" target="_blank">nylon conductive tape</a> works really well.
+**Can I extend the touch sensor pin?**  Yes, you can.  You will have to experiment to make sure it works reliably, but you can add a wire to the touch sensor pin to extend the "sensor" to another location. Tape similar to this <a href="https://www.adafruit.com/product/3961" target="_blank">nylon conductive tape</a> works really well.
 
 **Why don't I get the short throttle 'blip' when I start the timer?**  Follow your ESC instructions to perform a [Throttle Calibration](Power%20System%20Information.html#throttle-calibration).  Also make sure any soft start feature in the ESC is set to fast or hard start.
 
-**How can I get the ESC to complete the arming sequence?**  Some ESC’s will immediately check for a valid low throttle signal before they will arm.  The boot process of the Adafruit Trinket is about 1.5 seconds. During this time the voltage on the output pin of the Trinket is “floating”.  This may cause the ESC to think there is an invalid signal and prevent it from arming. There are two possible fixes for this issue. 1) After connecting the battery and the ESC does not arm, press the reset button (the tiny black pushbutton) on the Trinket.  This will restart the Trinket boot sequence and sometimes the ESC will arm on the second try.  2) Add a 4.7K ohm resistor between the ground wire and the signal wire of the ESC connector.  This will “pull down” the voltage on the output pin while the Trinket boots up.  With the resistor installed, after connecting the battery, the ESC should patiently wait until a valid signal is present and then arm normally.
+**How can I get the ESC to complete the arming sequence?**  Some ESCs will immediately check for a valid low throttle signal before they will arm.  The boot process of the Adafruit Trinket is about 1.5 seconds. During this time the voltage on the output pin of the Trinket is “floating”.  This may cause the ESC to think there is an invalid signal and prevent it from arming. There are two possible fixes for this issue. 1) After connecting the battery and the ESC does not arm, press the reset button (the tiny black pushbutton) on the Trinket.  This will restart the Trinket boot sequence and sometimes the ESC will arm on the second try.  2) Add a 4.7K ohm resistor between the ground wire and the signal wire of the ESC connector.  This will “pull down” the voltage on the output pin while the Trinket boots up.  With the resistor installed, after connecting the battery, the ESC should patiently wait until a valid signal is present and then arm normally.
 
 ![](assets/images/Touch_and_Go Resistor.jpeg)
 
