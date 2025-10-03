@@ -1,5 +1,28 @@
-theme: jekyll-theme-cayman
-show_downloads: true
-github:
-  zip_url: https://github.com/CircuitFlyer/Touch_and_Go/archive/v1.3.zip
-  tar_url: https://github.com/CircuitFlyer/Touch_and_Go/archive/v1.3.tar.gz
+title: Touch_and_Go Instructions
+description: An Open Source Control Line Timer Project
+remote_theme: just-the-docs/just-the-docs
+#theme: "just-the-docs"
+color_scheme: custom
+
+logo: "/assets/images/CircuitFlyer.png"
+
+# Set a path/url to a favicon that will be displayed by the browser
+favicon_ico: "/assets/images/favicon-32x32.png"
+
+
+url: https://circuitflyer.com/
+
+aux_links:
+  Touch_and_Go on Github: https://github.com/CircuitFlyer/Touch_and_Go
+
+callouts:
+  highlight:
+      color: yellow
+  warning:
+    title: Warning
+    color: red
+  new:
+    title: Are you ready for more than a basic flight timer?
+    color: purple
+
+heading_anchors: true
