@@ -6,7 +6,7 @@ nav_order: 1
 
 {% include Header.html %}
 
-![Photo1](assets/images/T&G Trinket M0.jpg)
+![Photo1](assets/images/T and G Trinket M0.JPG)
 
 # A DIY Control Line Timer Project
 {: .text-center }
