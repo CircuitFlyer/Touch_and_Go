@@ -8,9 +8,9 @@ nav_order: 6
 
 ## ESC Information ##
 
-The details of how to program your ESC (electronic speed controller) is outside the scope of these instructions.  Please refer to your ESC instruction manual for information.  If you are completely new to how electric control line power systems work, a brief overview can be found [here][1].
+The details of how to program your ESC (Electronic Speed Controller) is outside the scope of these instructions.  Please refer to your ESC instruction manual for information.  If you are completely new to how electric control line power systems work, a brief overview can be found [here][1].
 
-The timer should be compatible with the vast majority of ESC's available.  It will not work with ESC's that require a full throttle signal in order to arm the system before flight.
+The timer should be compatible with the vast majority of ESCs available.  It will not work with ESCs that require a full throttle signal in order to arm the system before flight.
 
 {: .warning }
 IMPORTANT NOTE! The simplistic nature of the Touch_and_Go timer does **not** provide any protection to the ESC from overcurrent conditions. A stalled propeller, i.e. a nose-over or crash, can cause damaging high current flow in both the ESC and the motor windings. Use extra caution when flying off of grass circles.
