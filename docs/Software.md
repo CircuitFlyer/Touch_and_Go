@@ -21,7 +21,7 @@ First, a bit of background on how CircuitPython functions: Whenever the timer is
 A quick note about micro-USB cables: If you have trouble getting the disk drive to show up on your computer there is a possibility you are not using a data cable.  There may be some USB cables that are used for charging only and are not data transfer cables.  Be sure you have the right one.
 
 <span class="fs-6">
-[Click Here to download the latest program code .zip file](https://github.com/CircuitFlyer/Touch_and_Go/archive/v1.4.zip){: .btn .btn-blue }
+[Click Here to download the latest program code .zip file](https://github.com/CircuitFlyer/Touch_and_Go/archive/v1.4.1.zip){: .btn .btn-blue }
 </span>
 
 ### Software Installation on a New Microcontroller: ###

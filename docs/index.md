@@ -11,7 +11,7 @@ nav_order: 1
 # A DIY Control Line Timer Project
 {: .text-center }
 
-### **NEW!!** Version: v1.4, Oct/2025
+### **NEW!!** Version: v1.4.1, Oct/2025
 <br>
 **Touch and Go** is an open source software program to create your own basic timer for an electric powered control line model aircraft.  Utilizing a low cost Adafruit Industries Trinket M0 microcontroller development board the timer is compact, light-weight and simple to use.   With a few taps of your finger the timer can be quickly programmed at the flying field to change the time delay before startup, the length of the flight and the RPM setting of the motor.  Because it’s open source, you can customize the functionality to your liking or even add new features.
 
