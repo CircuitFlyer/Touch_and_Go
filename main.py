@@ -1,7 +1,7 @@
 #    ********************
 #    *   Touch_and_Go   *
 #    ********************
-# Optimized Version 1.4 - Memory-efficient with NVM storage
+# Optimized Version 1.4.1 - Memory-efficient with NVM storage
 
 import board
 import time
@@ -56,7 +56,7 @@ def dot_update(color, flash_interval):
     if now >= flash_time + flash_interval:
         show = not show
         dot[0] = color if show else BLANK
-        if long_touch:
+        if long_touch and show:
             flash_count += 1
         flash_time = now
 
